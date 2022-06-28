@@ -64,7 +64,7 @@ passport.deserializeUser(function(id, done) {
 passport.use(new googleStrategy({
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
-  callbackURL: "/auth/google/callback",
+  callbackURL: "/auth/google/secrets",
   userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
 },
 function(accessToken, refreshToken, profile, cb) {
@@ -84,7 +84,7 @@ app.get("/", (req, res) => {
 app.get('/auth/google',
   passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-app.get('/auth/google/callback', 
+app.get('/auth/google/secrets', 
 passport.authenticate('google', { failureRedirect: '/login' }),
 function(req, res) {
    // Successful authentication, redirect to secrets page.
