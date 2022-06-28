@@ -84,7 +84,7 @@ app.get("/", (req, res) => {
 app.get('/auth/google',
   passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-app.get('/auth/google/secrets', 
+app.get('https://www.sleepy-fjord-47035.herokuapp.com/auth/google/secrets', 
 passport.authenticate('google', { failureRedirect: '/login' }),
 function(req, res) {
    // Successful authentication, redirect to secrets page.
