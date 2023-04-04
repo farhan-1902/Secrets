@@ -33,7 +33,7 @@ app.use(passport.session());
 const uri = 'mongodb+srv://farhan_19:'+process.env.MONGO_PASSWORD+'@secrets.bm41s.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose
-     .connect( uri)
+     .connect(uri)
      .then(() => console.log( 'Database Connected' ))
      .catch(err => console.log( err ));
 
